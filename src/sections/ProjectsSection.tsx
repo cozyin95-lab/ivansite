@@ -55,36 +55,14 @@ function ProjectCard({ project, index, total, progress }: ProjectCardProps) {
           </div>
 
           {/* Нижняя строка: картинки */}
-          <div className="flex items-stretch gap-3 sm:gap-4">
-            <div className="flex w-[40%] flex-col gap-3 sm:gap-4">
-              <ShotImage
-                siteUrl={project.url}
-                localShot={project.localShot}
-                alt={`${project.name}: главная страница`}
-                className={RADIUS}
-                style={{ height: 'clamp(130px, 16vw, 230px)' }}
-                zoom={1.7}
-                origin="12% 8%"
-              />
-              <ShotImage
-                siteUrl={project.url}
-                localShot={project.localShot}
-                alt={`${project.name}: детали`}
-                className={RADIUS}
-                style={{ height: 'clamp(160px, 22vw, 340px)' }}
-                zoom={1.5}
-                origin="90% 60%"
-              />
-            </div>
-            <div className="w-[60%]">
-              <ShotImage
-                siteUrl={project.url}
-                localShot={project.localShot}
-                alt={`${project.name}: главная страница целиком`}
-                className={`h-full ${RADIUS}`}
-              />
-            </div>
-          </div>
+          <a href={project.url} target="_blank" rel="noopener noreferrer" className="block">
+            <ShotImage
+              siteUrl={project.url}
+              localShot={project.localShot}
+              alt={`${project.name}: главная страница`}
+              className={`aspect-[16/10] w-full ${RADIUS}`}
+            />
+          </a>
         </motion.div>
       </div>
     </div>
@@ -112,7 +90,7 @@ export default function ProjectsSection() {
         </h2>
       </FadeIn>
 
-      <div ref={listRef} className="mx-auto max-w-[1400px]">
+      <div ref={listRef} className="mx-auto max-w-[960px]">
         {PROJECTS.map((project, i) => (
           <ProjectCard
             key={project.url}
