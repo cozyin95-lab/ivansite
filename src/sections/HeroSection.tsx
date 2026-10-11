@@ -1,14 +1,7 @@
 import ContactButton from '../components/ContactButton';
 import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
-import { TELEGRAM_URL } from '../data';
-
-const NAV_LINKS = [
-  { label: 'Обо мне', href: '#about' },
-  { label: 'Услуги', href: '#services' },
-  { label: 'Проекты', href: '#projects' },
-  { label: 'Контакты', href: TELEGRAM_URL, external: true },
-];
+import Navbar from '../components/Navbar';
 
 const PORTRAIT_URL =
   'https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png';
@@ -16,25 +9,13 @@ const PORTRAIT_URL =
 export default function HeroSection() {
   return (
     <section className="relative flex h-screen flex-col" style={{ overflowX: 'clip' }}>
-      <FadeIn delay={0} y={-20}>
-        <nav className="flex items-center justify-between px-6 pt-6 md:px-10 md:pt-8">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="text-sm font-medium uppercase tracking-wider text-[#D7E2EA] transition-opacity duration-200 hover:opacity-70 md:text-lg lg:text-[1.4rem]"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-      </FadeIn>
+      <Navbar />
 
-      <div className="overflow-hidden">
+      <div className="pt-24 md:pt-20" style={{ overflowX: 'clip' }}>
         <FadeIn delay={0.15} y={40}>
-          <h1 className="hero-heading mt-6 w-full whitespace-nowrap text-center text-[10vw] font-black uppercase leading-none tracking-tight sm:mt-4 md:-mt-5">
-            Привет, я Иван
+          <h1 className="hero-heading w-full whitespace-nowrap text-center text-[19vw] font-black uppercase leading-none tracking-tight sm:text-[10vw] md:-mt-4">
+            Привет,
+            <br className="sm:hidden" /> я Иван
           </h1>
         </FadeIn>
       </div>
